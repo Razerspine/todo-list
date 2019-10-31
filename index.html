@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="dist/css/style.css"/>
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <h1 class="header__title">TODO list</h1>
+        </div>
+    </header>
+    <main class="content">
+        <div class="content__wrapper">
+            <div class="search">
+                <input id="search" class="search__input" placeholder="search by title" type="text">
+            </div>
+            <div class="filter">
+                <div id="sort-status" class="filter__selected" data-options="all">all</div>
+                <ul class="filter__dropdown">
+                    <li class="filter__value">all</li>
+                    <li class="filter__value">open</li>
+                    <li class="filter__value">done</li>
+                </ul>
+            </div>
+            <div class="filter">
+                <div id="sort-priority" class="filter__selected" data-options="all">all</div>
+                <ul class="filter__dropdown">
+                    <li class="filter__value">all</li>
+                    <li class="filter__value">high</li>
+                    <li class="filter__value">normal</li>
+                    <li class="filter__value">low</li>
+                </ul>
+            </div>
+            <button type="button" id="modal-btn" class="button">Create</button>
+        </div>
+        <div id="item-wrapper" class="item-wrapper"></div>
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__title">Ponomarenko Pavel</div>
+        </div>
+    </footer>
+    <div id="modal" class="modal">
+        <div class="modal__wrapper">
+            <div class="modal__item">
+                <p class="modal__sub-title">Title:</p>
+                <input type="text" id="elem-title" class="modal__input">
+            </div>
+            <div class="modal__item">
+                <p class="modal__sub-title">Description:</p>
+                <textarea id="elem-description" class="modal__textarea" rows="4"></textarea>
+            </div>
+            <div class="modal__item">
+                <div class="filter">
+                    <div id="elem-priority" class="filter__selected">High</div>
+                    <ul class="filter__dropdown">
+                        <li class="filter__value">High</li>
+                        <li class="filter__value">Normal</li>
+                        <li class="filter__value">Low</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal__button-group">
+                <input type="hidden" id="item-id">
+                <button type="button" class="button js-modal-close">Cancel</button>
+                <button type="button" id="create-item" class="button">Save</button>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="dist/js/build.js"></script>
+</body>
+</html>

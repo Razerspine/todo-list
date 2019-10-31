@@ -1,0 +1,10 @@
+.search {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    border: 1px solid $primary_color_2;
+    padding: 6px 8px;
+    min-height: 35px;
+  }
+}

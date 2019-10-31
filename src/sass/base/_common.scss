@@ -1,0 +1,27 @@
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+  font-family: $main_font;
+
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+body {
+  background-color: $primary_color_1;
+  color: $primary_color_2;
+  display: flex;
+  flex-direction: column;
+  font-family: $main_font;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+a {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
