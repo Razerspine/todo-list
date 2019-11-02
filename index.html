@@ -16,7 +16,7 @@
             <div class="search">
                 <input id="search" class="search__input" placeholder="search by title" type="text">
             </div>
-            <div class="filter">
+            <div class="filter" id="item-status">
                 <div id="sort-status" class="filter__selected" data-options="all">all</div>
                 <ul class="filter__dropdown">
                     <li class="filter__value">all</li>
@@ -24,7 +24,7 @@
                     <li class="filter__value">done</li>
                 </ul>
             </div>
-            <div class="filter">
+            <div class="filter" id="item-priority">
                 <div id="sort-priority" class="filter__selected" data-options="all">all</div>
                 <ul class="filter__dropdown">
                     <li class="filter__value">all</li>
@@ -53,12 +53,12 @@
                 <textarea id="elem-description" class="modal__textarea" rows="4"></textarea>
             </div>
             <div class="modal__item">
-                <div class="filter">
-                    <div id="elem-priority" class="filter__selected">High</div>
-                    <ul class="filter__dropdown">
-                        <li class="filter__value">High</li>
-                        <li class="filter__value">Normal</li>
-                        <li class="filter__value">Low</li>
+                <div class="modal-select">
+                    <div id="elem-priority" class="modal-select__selected">High</div>
+                    <ul class="modal-select__dropdown">
+                        <li class="modal-select__value">High</li>
+                        <li class="modal-select__value">Normal</li>
+                        <li class="modal-select__value">Low</li>
                     </ul>
                 </div>
             </div>

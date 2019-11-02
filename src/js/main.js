@@ -28,6 +28,7 @@ window.onload = function () {
     let inputSearch = document.getElementById('search');
 
     inputSearch.onkeyup = function () {
+
         let inputValue = this.value;
         let items = document.getElementsByClassName('item');
 
@@ -49,13 +50,12 @@ window.onload = function () {
 
         constructor() {
 
-            this.itemArray = []
+            this.itemArray = [];
         }
 
         saveItem(params) {
 
             this.itemArray.push(params);
-            console.log(this.itemArray);
         }
 
         initItem() {
@@ -194,7 +194,6 @@ window.onload = function () {
                 } else if (statusAttr === 'edit') {
 
                     this.closest('.item').classList.add('current');
-
                     new todoItem().setItemParams(currentItem);
                     modal.setAttribute('data-item', 'edit');
                     modal.classList.add('active');
@@ -214,19 +213,25 @@ window.onload = function () {
             this.option = option;
             let item = document.getElementsByClassName('item');
 
-            for(let i = 0; i < item.length; i++) {
+            for (let i = 0; i < item.length; i++) {
 
                 let itemAttr = item[i].getAttribute('data-status');
+                let itemPriority = item[i].querySelector('.item__priority').textContent.toLowerCase();
 
-                if(this.option === 'done' && itemAttr === this.option && this.option !== 'all') {
+                if (this.option === 'done' && itemAttr === this.option && this.option !== 'all') {
                     item[i].style.display = '';
                 } else if (this.option === 'all') {
                     item[i].style.display = '';
+                } else if (this.option === 'open' && itemAttr === this.option) {
+                    item[i].style.display = '';
+                } else if (this.option === 'high' && itemPriority === this.option) {
+                    item[i].style.display = '';
+                } else if (this.option === 'normal' && itemPriority === this.option) {
+                    item[i].style.display = '';
+                } else if (this.option === 'low' && itemPriority === this.option) {
+                    item[i].style.display = '';
                 } else {
                     item[i].style.display = 'none';
-                }
-                if(this.option === 'open' && itemAttr === this.option) {
-                    item[i].style.display = ''
                 }
             }
         }
@@ -234,6 +239,8 @@ window.onload = function () {
 
     let filter = document.getElementsByClassName('filter');
     let filterDropDown = document.getElementsByClassName('filter__dropdown');
+    let modalSelect = document.querySelector('.modal-select');
+    let modalDropDown = document.querySelector('.modal-select__dropdown');
 
     for (let i = 0; i < filter.length; i++) {
 
@@ -260,4 +267,23 @@ window.onload = function () {
         }
     }
 
+
+    modalSelect.addEventListener('click', function () {
+
+        let currentElement = this.querySelector('.modal-select__dropdown');
+        this.classList.toggle('active');
+        currentElement.classList.toggle('active');
+
+    });
+
+    let dropDownElem = modalDropDown.children;
+
+    for (let c = 0; c < dropDownElem.length; c++) {
+        dropDownElem[c].addEventListener('click', function () {
+            let currentValue = this.innerHTML;
+
+            this.parentElement.previousElementSibling.innerHTML = currentValue;
+            this.parentElement.previousElementSibling.setAttribute('data-options', currentValue);
+        });
+    }
 };

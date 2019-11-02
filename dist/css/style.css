@@ -598,6 +598,43 @@ a:hover, a:focus {
         justify-content: space-between;
     margin-top: 20px; }
 
+.modal-select {
+  border: 1px solid #000000;
+  min-width: 180px;
+  min-height: 35px;
+  padding: 6px 25px 6px 8px;
+  position: relative;
+  cursor: pointer; }
+  .modal-select:after {
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #000000;
+    position: absolute;
+    transform: translateY(-50%) rotate(0);
+    top: 50%;
+    right: 8px;
+    z-index: 5;
+    transition: all 0.2s; }
+  .modal-select.active:after {
+    transform: translateY(-50%) rotate(-180deg);
+    transition: all 0.2s; }
+  .modal-select__dropdown {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    position: absolute;
+    left: -1px;
+    top: 100%;
+    width: calc(100% + 2px);
+    z-index: 5;
+    padding: 10px 5px;
+    display: none; }
+    .modal-select__dropdown.active {
+      display: block; }
+  .modal-select__value {
+    padding: 5px;
+    margin-bottom: 5px; }
+
 .button {
   border: 1px solid #000000;
   background: #ffffff;
