@@ -1,7 +1,5 @@
 window.onload = function () {
 
-    ////////////////////////////////////////////////////////////
-
     let modalBtn = document.getElementById('modal-btn');
     let modal = document.getElementById('modal');
     let modalCloseBtn = document.querySelector('.modal .js-modal-close');
@@ -55,15 +53,18 @@ window.onload = function () {
         }
 
         saveItem(params) {
+
             this.itemArray.push(params);
             console.log(this.itemArray);
         }
 
         initItem() {
+
             return this.itemArray;
         }
 
         updateArray(item, title, description, priority) {
+
             this.item = item;
             this.title = title;
             this.description = description;
@@ -75,6 +76,7 @@ window.onload = function () {
         }
 
         cleanArray(index, array) {
+
             this.index = index;
             this.array = array;
             delete this.array[this.index];
@@ -85,6 +87,7 @@ window.onload = function () {
     class todoItem {
 
         constructor(title, description, priority) {
+
             this.title = title;
             this.description = description;
             this.priority = priority;
@@ -94,7 +97,6 @@ window.onload = function () {
 
             this.content = content;
             this.id = id;
-
             let array = this.content;
             let newData = array[array.length - 1];
 
@@ -118,12 +120,14 @@ window.onload = function () {
         }
 
         setItemParams(selector) {
+
             this.selector = selector;
             modalTitle.value = this.selector.querySelector('.item__title').innerHTML;
             modalDescription.value = this.selector.querySelector('.item__description').innerHTML;
         }
 
         updateItem(elem, array) {
+
             this.elem = elem;
             this.array = array;
             let dataArray = this.array[this.elem];
@@ -166,17 +170,6 @@ window.onload = function () {
         countId++;
     });
 
-    class filterItem {
-
-        constructor(value) {
-            this.value = value;
-        }
-
-        getValue() {
-            return this.value;
-        }
-    }
-
     document.addEventListener('mouseup', function (e) {
         let currentItem = e.target;
         if (currentItem.className === 'item__options') {
@@ -211,6 +204,34 @@ window.onload = function () {
         }
     });
 
+    class filterItem {
+
+        constructor() {
+
+        }
+
+        getValue(option) {
+            this.option = option;
+            let item = document.getElementsByClassName('item');
+
+            for(let i = 0; i < item.length; i++) {
+
+                let itemAttr = item[i].getAttribute('data-status');
+
+                if(this.option === 'done' && itemAttr === this.option && this.option !== 'all') {
+                    item[i].style.display = '';
+                } else if (this.option === 'all') {
+                    item[i].style.display = '';
+                } else {
+                    item[i].style.display = 'none';
+                }
+                if(this.option === 'open' && itemAttr === this.option) {
+                    item[i].style.display = ''
+                }
+            }
+        }
+    }
+
     let filter = document.getElementsByClassName('filter');
     let filterDropDown = document.getElementsByClassName('filter__dropdown');
 
@@ -234,7 +255,7 @@ window.onload = function () {
 
                 this.parentElement.previousElementSibling.innerHTML = currentValue;
                 this.parentElement.previousElementSibling.setAttribute('data-options', currentValue);
-                new filterItem(currentValue).getValue();
+                new filterItem().getValue(currentValue, getItems.itemArray);
             });
         }
     }
