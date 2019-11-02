@@ -1,10 +1,26 @@
 .search {
   display: flex;
   align-items: center;
+  position: relative;
 
   &__input {
     border: 1px solid $primary_color_2;
-    padding: 6px 8px;
+    padding: 6px 8px 6px 40px;
+    min-width: 350px;
     min-height: 35px;
   }
+
+  &__icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: $primary_color_2;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 5px;
+    top: 50%;
+    z-index: 5;
+  }
+
+
 }

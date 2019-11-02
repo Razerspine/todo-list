@@ -19,7 +19,25 @@
     margin: 0 auto;
     padding: 15px;
     &.active {
-      background-color: #dedede;
+      background-color: $active_elem;
+      position: relative;
+      &:after {
+        content: '\2713';
+        font-weight: bold;
+        font-size: 18px;
+        color: $primary_color_2;
+        border: 2px solid $primary_color_2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        padding-top: 2px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        z-index: 5;
+      }
     }
   }
 

@@ -472,14 +472,6 @@ svg {
 
 @font-face {
   font-family: 'montserrat';
-  src: url("../fonts/montserrat-medium-webfont.eot");
-  src: url("../fonts/montserrat-medium-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-medium-webfont.woff2") format("woff2"), url("../fonts/montserrat-medium-webfont.woff") format("woff"), url("../fonts/montserrat-medium-webfont.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; }
-
-@font-face {
-  font-family: 'montserrat';
   src: url("../fonts/montserrat-regular-webfont.eot");
   src: url("../fonts/montserrat-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat-regular-webfont.woff2") format("woff2"), url("../fonts/montserrat-regular-webfont.woff") format("woff"), url("../fonts/montserrat-regular-webfont.ttf") format("truetype");
   font-weight: normal;
@@ -515,11 +507,23 @@ a:hover, a:focus {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
-      align-items: center; }
+      align-items: center;
+  position: relative; }
   .search__input {
     border: 1px solid #000000;
-    padding: 6px 8px;
+    padding: 6px 8px 6px 40px;
+    min-width: 350px;
     min-height: 35px; }
+  .search__icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: #000000;
+    position: absolute;
+    transform: translateY(-50%);
+    left: 5px;
+    top: 50%;
+    z-index: 5; }
 
 .filter {
   border: 1px solid #000000;
@@ -664,7 +668,27 @@ a:hover, a:focus {
     margin: 0 auto;
     padding: 15px; }
     .item__wrapper.active {
-      background-color: #dedede; }
+      background-color: rgba(164, 232, 158, 0.14);
+      position: relative; }
+      .item__wrapper.active:after {
+        content: '\2713';
+        font-weight: bold;
+        font-size: 18px;
+        color: #000000;
+        border: 2px solid #000000;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+        width: 22px;
+        height: 22px;
+        padding-top: 2px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        z-index: 5; }
   .item__title {
     margin-bottom: 15px;
     min-height: 45px; }
@@ -739,7 +763,7 @@ a:hover, a:focus {
     max-width: 1200px;
     margin: 0 auto; }
   .header__title {
-    font-weight: 900;
+    font-weight: bold;
     font-size: 18px; }
 
 .content {
@@ -756,7 +780,7 @@ a:hover, a:focus {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 0; }
+    padding: 15px 50px 15px 0; }
 
 .footer {
   margin-top: auto;
